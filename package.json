@@ -1,0 +1,50 @@
+{
+  "name": "talkintones",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server1.js",
+  "scripts": {
+    "start": "node server1.js",
+    "dev": "nodemon server1.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/plugin-transform-async-generator-functions": "^7.24.3",
+    "@babel/plugin-transform-class-properties": "^7.24.1",
+    "@babel/plugin-transform-json-strings": "^7.24.1",
+    "@babel/plugin-transform-object-rest-spread": "^7.24.5",
+    "@babel/plugin-transform-optional-catch-binding": "^7.24.1",
+    "@babel/plugin-transform-unicode-property-regex": "^7.24.1",
+    "axios": "^1.7.2",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "consolidate": "^1.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.18.3",
+    "express-fileupload": "^1.5.0",
+    "express-session": "^1.18.0",
+    "express-validator": "^7.0.1",
+    "fixed": "^0.3.1",
+    "install": "^0.13.0",
+    "mu2express": "^0.0.1",
+    "multer": "^1.4.3",
+    "mustache": "^4.2.0",
+    "mysql": "^2.18.1",
+    "node-tesseract-ocr": "^2.2.1",
+    "path": "^0.12.7",
+    "pdf-parse": "^1.1.1",
+    "pickleparser": "^0.2.1",
+    "python-shell": "^5.0.0",
+    "react": "^18.2.0",
+    "request": "^2.88.2",
+    "tesseract.js": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}

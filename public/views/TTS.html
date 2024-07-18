@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="book.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+<!-- Link Swiper's CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+<title>TextToSpeech</title>
+
+
+<style>
+body, html {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+
+}
+
+.home-background img {
+  width: 100%;
+  height: 100%;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+  color: #000;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color:#c7940a;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.bg-image {
+  /* Add the blur effect */
+  filter: blur(8px);
+  -webkit-filter: blur(4px); 
+  /* Full height */
+  height: 100%; 
+  
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Position text in the middle of the page/image */
+.bg-text {
+  margin-top: 100px;
+  color: white;  
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  padding: 20px;
+}
+
+.head{
+  text-align: center;
+}
+
+  textarea{
+    color: #000;
+    font-size: 15px;
+    border: 0;
+    outline: 0;
+    padding: 20px;
+    border-radius: 10px;
+    resize: none;
+    width: 600px;
+}
+textarea::placeholder{
+    font-size: 16px;
+    color: #0000005a;
+}
+.row{
+ /* width: 600px; */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+button{
+    background-color: #c7940a;;
+    font-size: 16px;
+    padding: 10px 30px;
+    border-radius: 35px;
+    border: 0;
+    outline: 0;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+select{
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+  outline: 0;
+  border: 0;
+  border-radius: 35px;
+  appearance: auto;
+  background-repeat: no-repeat;
+  background-size: 10px;
+}
+  button:hover {
+    opacity:1;
+  }
+
+  .bt:hover{
+    background-color: #ffc935;
+  }
+        </style>
+        </head>
+    <body>
+      <nav>
+        <div
+          class="logo"
+          style="display: inline-flex; align-items: center; gap: 5px"
+        >
+          <img src="../../assets/new logo.jpeg" />
+          <!-- <h1>Ma</h1> -->
+        </div>
+        <div class="navbar" id="navBar" style="background-color: #fff">
+          <ul>
+            <li><a href="welcome.html"><i class="fa fa-fw fa-home"></i> Home</a></li>
+            <li><a href="signup.html">SignUp</a></li>
+            <li><a href="login.html">LogIN</a></li>
+            <li class="active" style="background-color:#c7940a;"><div class="dropdown">
+              <button class="dropbtn">Services 
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                <a href="TTS.html" class="active" style="background-color:#c7940a;">Convrt Text TO Speech</a>
+              <a href="uploadepage.html">Upload File</a>
+              <a href="imagetext.html">Upload Image</a>
+              <a href="/profile">Profile</a>
+              </div>
+            </div></li>
+          </ul>
+        </div>
+      </nav>
+    
+    
+     <!-- home-background section -->
+     <section class="home-background">
+      <div class="bg-image">
+        <img src="../../assets/background.jpg">
+      </div>
+    </section>
+    
+   
+        <div class="bg-text">
+                  <h1 class="head">Text To Speech</h1>
+                  <p>Enter your text to transform to speech:</p>
+                    <textarea id="text" name="text" rows="6" cols="55" placeholder="Write anything here...""></textarea>
+                    <br>
+                    <div class="row">
+                      <label>Select Voice Language :</label>
+                      <div class="outer">
+                        <select></select>
+                      </div>
+  
+                      <div class="buttons">
+                          <button id="Listen" class="bt"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);"><path d="M7 6v12l10-6z"></path></svg>Listen</button>
+                          <button id="Pause" class="bt"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);"><path d="M7 7h10v10H7z"></path></svg>Stop</button>
+                          <button id="Resume" class="bt"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);"><path d="M8 7h3v10H8zm5 0h3v10h-3z"></path></svg>Resume</button>
+                      </div>
+                    </div>
+                    <br>
+        </div>
+
+
+
+
+        <script>
+          let speech = new SpeechSynthesisUtterance();
+          let voices = [];
+          let voiceSelect = document.querySelector("select");
+          let paused = false;
+
+          function resetSpeech() {
+              speech = new SpeechSynthesisUtterance();
+              speech.text = document.querySelector("textarea").value;
+              if (voices.length > 0) {
+                  speech.voice = voices[voiceSelect.value];
+              }
+          }
+
+          function populateVoices() {
+              voices = window.speechSynthesis.getVoices();
+              voiceSelect.innerHTML = "";
+              voices.forEach((voice, i) => {
+                  let option = document.createElement("option");
+                  option.value = i;
+                  option.textContent = voice.name + " (" + voice.lang + ")";
+                  voiceSelect.appendChild(option);
+              });
+              resetSpeech();
+          }
+
+          function initSpeechSynthesis() {
+              if (typeof speechSynthesis !== 'undefined' && speechSynthesis.onvoiceschanged !== undefined) {
+                  speechSynthesis.onvoiceschanged = populateVoices;
+              }
+              populateVoices();
+          }
+
+          voiceSelect.addEventListener("change", () => {
+              speech.voice = voices[voiceSelect.value];
+          });
+
+          document.getElementById("Listen").addEventListener("click", () => {
+              if (paused) {
+                  window.speechSynthesis.cancel();
+                  paused = false;
+              }
+              resetSpeech();
+              window.speechSynthesis.speak(speech);
+          });
+
+          document.getElementById("Pause").addEventListener("click", () => {
+              window.speechSynthesis.pause();
+              paused = true;
+          });
+
+          document.getElementById("Resume").addEventListener("click", () => {
+              if (paused) {
+                  window.speechSynthesis.resume();
+              } else {
+                  window.speechSynthesis.cancel();
+                  resetSpeech();
+                  window.speechSynthesis.speak(speech);
+              }
+          });
+
+          window.addEventListener("load", () => {
+              initSpeechSynthesis();
+          });
+
+          window.addEventListener("beforeunload", () => {
+              window.speechSynthesis.cancel();
+          });
+      </script>
+
+      
+<footer>
+  <div class="row primary">
+    <div class="column about">
+  
+    <h3>Book Compass</h3>
+    <p>
+                Welcome to our Recommendations Books website! Our platform offers a seamless experience by allowing you to upload images and files of your favorite books, which are then converted into text for easy access and organization. 
+
+    </p>
+    <div class="social">
+      <i class="fa fa-facebook-square"></i>
+      <i class="fa fa-twitter-square"></i>
+      <i class="fa fa-instagram"></i>
+    </div>
+  </div>
+
+  
+  <div class="column subscribe">
+   <h3>Newsletter</h3>
+    <div>
+     <input type="email" placeholder="Your email id here" />
+     <button>Subscribe</button>
+    </div>
+  
+  </div>
+  
+  </div>
+
+  </footer>
+
+    </body>
+</html>
+
+
+

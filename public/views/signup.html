@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="book.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+<!-- Link Swiper's CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+
+  <title>Register</title>
+  <style>
+    body, html {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      box-sizing: border-box;
+    
+    }
+    .home-background img {
+      width: 100%;
+      height: 100%;
+    }
+    
+    .dropdown {
+      float: left;
+      overflow: hidden;
+    }
+    
+    .dropdown .dropbtn {
+      font-size: 16px;  
+      border: none;
+      outline: none;
+      padding: 14px 16px;
+      background-color: inherit;
+      font-family: inherit;
+      margin: 0;
+      color: #000;
+    }
+    
+    .navbar a:hover, .dropdown:hover .dropbtn {
+      background-color:#c7940a;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    
+    .dropdown-content a {
+      float: none;
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+    }
+    
+    .dropdown-content a:hover {
+      background-color: #ddd;
+    }
+    
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    
+    .bg-image {
+      /* Add the blur effect */
+      filter: blur(8px);
+      -webkit-filter: blur(4px); 
+      /* Full height */
+      height: 100%; 
+      
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      margin-top: 100px;
+    }
+    
+    /* Position text in the middle of the page/image */
+    .bg-text {
+      margin-top: 100px;
+      color: white;  
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      padding: 20px;
+    }
+    
+    .head{
+      text-align: center;
+    }
+    
+    .row{
+     /* width: 600px; */
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px
+    }
+    
+    .buttons{
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 20px;
+    }
+    button{
+        background-color: #c7940a;;
+        font-size: 16px;
+        border-radius: 20px;
+        border: 0;
+        outline: 0;
+        align-items: center;
+        padding: 14px 20px;
+        margin: 8px 0;
+        cursor: pointer;
+        width: 100%;
+        opacity: 0.9;
+    }
+      button:hover {
+        opacity:1;
+      }
+    
+      input{
+        
+        box-sizing: border-box;
+      }
+     
+      /* Full-width input fields */
+      input[type=text], input[type=password] {
+          width: 100%;
+          padding: 15px;
+          margin: 5px 0 22px 0;
+          display: inline-block;
+          border: none;
+          background: #f1f1f1;
+
+        }
+        
+        /* Add a background color when the inputs get focus */
+        input[type=text]:focus, input[type=password]:focus {
+          background-color: #ddd;
+          outline: none;
+        }
+        
+       
+     
+        button:hover {
+          opacity:1;
+        }
+        
+        /* Extra styles for the cancel button */
+        .cancelbtn {
+          padding: 14px 20px;
+          background-color: #f44336;
+        }
+        
+        /* Float cancel and signup buttons and add an equal width */
+        .cancelbtn, .submit-btn {
+          float: left;
+          width: 50%;
+        }
+        
+        /* Add padding to container elements */
+        .container {
+          padding: 16px;
+        }
+      /* Modal Content/Box */
+      .modal-content {
+          margin: 0% auto 0% auto; /* 5% from the top, 15% from the bottom and centered */
+          border: 1px solid #888;
+          width: 100%; /* Could be more or less, depending on screen size */
+          color: #fff;
+        }
+        
+        /* Style the horizontal ruler */
+        hr {
+          border: 1px solid #f1f1f1;
+          margin-bottom: 25px;
+        }
+         
+        /* The Close Button (x) */
+        .close {
+          position: absolute;
+          right: 35px;
+          top: 15px;
+          font-size: 40px;
+          font-weight: bold;
+          color: #f1f1f1;
+        }
+        
+        .close:hover,
+        .close:focus {
+          color: #f44336;
+          cursor: pointer;
+        }
+        
+        /* Clear floats */
+        .clearfix::after {
+          content: "";
+          clear: both;
+          display: table;
+        }
+        /* Change styles for cancel button and signup button on extra small screens */
+        @media screen and (max-width: 300px) {
+          .cancelbtn, .submit-btn {
+              width: 100%;
+          }
+        }
+      
+  .alert-box{
+  position: absolute;
+  top:-100%;
+  left: 50%;
+  transform: translate(-50%);
+  min-width: 150px;
+  max-width: 90%;
+  width: auto;
+  height: auto;
+  padding: 10px;
+  text-transform: capitalize;
+  background: rgba(255, 119, 119);
+  border-top: 10px solid rgba(255, 37, 37);
+  border-bottom-left-radius:10px;
+  border-bottom-right-radius:10px;
+  color: white;
+  text-align: center;
+  transition: 1s;
+}
+
+
+    </style>
+</head>
+<body>
+  <nav>
+    <div
+      class="logo"
+      style="display: inline-flex; align-items: center; gap: 5px"
+    >
+      <img src="../../assets/new logo.jpeg" />
+      <!-- <h1>Ma</h1> -->
+    </div>
+    <div class="navbar" id="navBar" style="background-color: #fff">
+      <ul>
+        <li><a href="welcome.html"><i class="fa fa-fw fa-home"></i> Home</a></li>
+        <li class="active" style="background-color:#c7940a;"><a href="signup.html">SignUp</a></li>
+        <li><a href="login.html">LogIN</a></li>
+        <li><div class="dropdown">
+          <button class="dropbtn">Services 
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="TTS.html">Convrt Text TO Speech</a>
+            <a href="uploadepage.html">Upload File</a>
+            <a href="imagetext.html">Upload Image</a>
+          </div>
+        </div></li>
+      </ul>
+    </div>
+  </nav>
+
+
+ <!-- home-background section -->
+ <section class="home-background">
+  <div class="bg-image">
+    <img src="../../assets/background.jpg">
+  </div>
+</section>
+
+
+  <div class="form">
+  <div class="alert-box">
+    <p class="alert">hello</p>
+  </div>
+  </div>
+
+<div class="bg-text">
+    <div class="modal-content">
+        <div class="container">
+          <h1>Sign Up</h1>
+          <p>Please fill in this form to create an account.</p>
+          <hr>
+          <label for="Name"><b>Full Name</b></label>
+          <input type="text" class="name" placeholder="Enter Full Name" name="name" required>
+    
+          <label for="email"><b>Email</b></label>
+          <input type="text" class="email" placeholder="Enter Email" name="email" required>
+    
+          <label for="password"><b>Password</b></label>
+          <input type="password" class="password" placeholder="Enter Password" name="password" required>
+
+          <label>
+            <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+          </label>
+    
+          <p>By creating an account you agree to our <a href="#" style="color:dodgerblue;display:inline-block">Terms & Privacy</a>.</p>
+    
+        
+          <div class="clearfix">
+            <button type="button" class="cancelbtn">Cancel</button>
+            <button type="submit" class="submit-btn">Sign Up</button>
+          </div>
+          <a href="login.html" class="link" style="color: #f1f1f1;">already have an account? Log In</a>
+
+        </div>
+    </div>
+</div>
+
+  <script src="static/form.js"></script>
+
+
+  <footer>
+    <div class="row primary">
+      <div class="column about">
+    
+      <h3>Book Compass</h3>
+      <p>
+        Welcome to our Recommendations Books website! Our platform offers a seamless experience by allowing you to upload images and files of your favorite books, which are then converted into text for easy access and organization. 
+      </p>
+      <div class="social">
+        <i class="fa fa-facebook-square"></i>
+        <i class="fa fa-twitter-square"></i>
+        <i class="fa fa-instagram"></i>
+      </div>
+    </div>
+  
+    
+    <div class="column subscribe">
+    <h3>Newsletter</h3>
+    <div>
+    <input type="email" placeholder="Your email id here"/>
+    <button>Subscribe</button>
+    </div>
+    
+    </div>
+    
+    </div>
+
+    </footer>
+</body>
+
+
+
+</html>
